@@ -1,4 +1,4 @@
-import styles from '../styles/Home.module.css'
+import classes from 'src/components/Links/Links.module.css'
 
 const ITEMS = [
   {
@@ -25,10 +25,10 @@ const ITEMS = [
 
 export function Links() {
   return (
-    <div className={styles.grid}>
+    <div className={classes.grid}>
       {ITEMS.map(item => {
         return (
-        <a key={item.href} href={item.href} className={styles.card}>
+        <a key={item.href} href={item.href} className={classes.card}>
           <h2>{item.title}</h2>
           <p>{item.description}</p>
         </a>
