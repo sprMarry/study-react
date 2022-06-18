@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import Link from 'next/link';
 import styles from 'src/styles/Home.module.css';
 import { Header } from 'src/components/Header';
 import { Main } from 'src/components/Main';
@@ -21,7 +22,9 @@ export default function Home() {
         <title>Index Page</title>
       </Head>
       <Header />
-      <a href='/about' onClick={handleClick}>ボタン</a>
+      <Link href='/about'>
+        <a onClick={handleClick}>ボタン</a>
+      </Link>
       <Main page="index" />
       <Footer />
     </div>
