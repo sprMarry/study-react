@@ -1,25 +1,21 @@
 import Head from 'next/head';
-import Link from 'next/link';
 import styles from 'src/styles/Home.module.css';
 import { Header } from 'src/components/Header';
 import { Main } from 'src/components/Main';
 import { Footer } from 'src/components/Footer';
-import { useCallback, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 export default function Home() {
-  const handleClick = useCallback((e) => {
-    const foo = 1;
+  const [count, setCount] = useState(1);
 
-    console.log(e.target.href);
-    e.preventDefault();
-    alert(foo)
-  }, []);
+  const handleClick = (e) => {
+    setCount(count => count + 1);
+    setCount(count => count + 1);
+  };
 
   useEffect(() => {
-    console.log('マウント');
     document.body.style.backgroundColor = 'lightblue';
     return () => {
-      console.log('アンマウント');
       document.body.style.backgroundColor = '';
     }
   }, []);
@@ -30,9 +26,8 @@ export default function Home() {
         <title>Index Page</title>
       </Head>
       <Header />
-      <Link href='/about'>
-        <a onClick={handleClick}>ボタン</a>
-      </Link>
+      <h1>{count}</h1>
+      <button onClick={handleClick}>ボタン</button>
       <Main page="index" />
       <Footer />
     </div>
